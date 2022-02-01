@@ -22,11 +22,11 @@ https://ruffle.rs/demo -->
                 </a>
           </div>
                 <a href="https://github.com/VocalNutria9174/ruffle-player" style="color:#81c995;">Github</a>
-            
+            <p><b>NOTE: Only Supports Action Script 1 & 2! Support for Action Script 3 is comming soon!!!</b></p>
             <div id="file-picker">
                 <div id="local-file-container">
-                    <span>Choose a SWF File!:</span>
-                    <input type="file" accept=".swf,.spl" id="local-file" />
+                    <span>Choose a SWF File:</span>
+                    <input type="file" accept=".swf,.spl" id="local-file" title="Choose a file to use!" />
                 </div>
                 <div id="sample-swfs-container" class="hidden">
                     <span id="sample-swfs-label">Sample SWF:</span>
@@ -43,7 +43,8 @@ https://ruffle.rs/demo -->
         </div>
         <div style="background-color:#323437;" id="main">
             <div id="overlay" class="hidden"></div>
-            <div id="prompt">Select or drag an SWF File to Play!</div>
+            <div id="prompt"><b>Select or drag an SWF File to Play!</b>
+        </div>
         </div>
         <script src="https://ruffle.rs/demo/index.js"></script>
     </body>
