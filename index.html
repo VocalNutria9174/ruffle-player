@@ -42,66 +42,61 @@ https://ruffle.rs/demo/ -->
                 </div>
             </div>
         </div>
-        <div style="background-color:#323437;" id="main">
-          <script type="text/javascript">
-	  var fpsCounter = function() {
-	var fps = 0,
-		framesThisSecond = 0,
-		lastFpsUpdate = 0,
-		fpsDecay = 0.25,
-		fpsUpdateTime = 1000;
-	var fpsDisplay = document.createElement('div');
-	fpsDisplay.style.cssText = 'position:fixed;left:0;top:0;opacity:0.7;z-index:9999;font-family:sans-serif;font-size:16px;font-weight:bold;color:#4beb77;';
-	fpsDisplay.appendChild(document.createTextNode("Loading..."));
-	document.body.appendChild(fpsDisplay);
-	this.update = function(timestamp) {
-		if (typeof timestamp === 'undefined') { timestamp = performance.now() }; //if no timestamp is given, default to performance.now()
-		if (timestamp > lastFpsUpdate + fpsUpdateTime) { //update every fpsUpdateTime
-			fps = fpsDecay * framesThisSecond + (1 - fpsDecay) * fps; //compute the new FPS
-			lastFpsUpdate = timestamp;
-			framesThisSecond = 0;
-			fpsDisplay.textContent = Math.round(fps) + "fps";
-		}
-		framesThisSecond++;
-	}
-}
-</script>
-<script type="text/javascript">
-			var box,
-				boxWidth,
-				boxPos = 0,
-				boxVelocity = 3,
-				limit = 500;
-			document.addEventListener('DOMContentLoaded', function() {
-				
-				myFPSCounter = new fpsCounter(); //fps-counter.js
-				box = document.querySelector('#box');
-				boxWidth = document.querySelector('#box').offsetWidth;
-				limit = document.querySelector("#board").clientWidth;
-				
-				requestAnimationFrame(mainLoop);
-			});
-			function mainLoop(timestamp) {
-				myFPSCounter.update(timestamp); //fps-counter.js
-				update();
-				draw();
-				requestAnimationFrame(mainLoop);
-			}
-			function update() {
-				boxPos += boxVelocity;
-				if (boxPos + boxWidth >= limit || boxPos <= 0) boxVelocity = -boxVelocity;
-			}
-			function draw() {
-				box.style.left = boxPos + 'px';
-			}
-</script>
+<div style="background-color:#323437;" id="main" class="html_embed_widget embed_wrapper">
+            <div id="overlay" class="hidden"></div>
+            <div id="prompt"><b>Select or drag an SWF File to Play!</b>
+    <button title="Enter fullscreen" id="fullscreen_btn" class="fullscreen_btn">
+    <img src="https://itch.io/static/images/enlarge.svg"/></button>
+    <script src="https://vocalnutria9174.github.io/fpsjs/fps.js" type="text/javascript"></script>
 <div id="board" tabindex="0">
 	<div id="box"></div>
 </div><div id="board" tabindex="0">
 	<div id="box"></div>
 </div>
-            <div id="overlay" class="hidden"></div>
-            <div id="prompt"><b>Select or drag an SWF File to Play!</b>
+  </div>
+</div>
+
+<style>
+  .fullscreen_btn{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-webkit-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-moz-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-o-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:fullscreen{display:block}.html_embed_widget .game_frame:not(.game_loaded) .restore_wrapper{display:none}.html_embed_widget .game_frame iframe{height:0;width:0;border:0;box-sizing:border-box;max-height:100%;max-width:100%;min-height:100%;min-width:100%}.html_embed_widget .fullscreen_btn{opacity:.4;position:absolute;bottom:0;right:0;margin:8px;font-size:16px;display:block;transition:opacity 0.4s;background:none;padding:0;border:0;cursor:pointer}.html_embed_widget .fullscreen_btn img{display:block;width:30px;height:30px}.html_embed_widget .fullscreen_btn:hover{opacity:.8}.game_frame{margin:0 auto;position:relative;background-position:50% 50%}.html_embed_widget .game_frame.maximized{margin:0;width:100% !important;height:100% !important;position:fixed;top:0;left:0;z-index:1000;background-image:none}.html_embed_widget .game_frame.maximized .restore_wrapper{display:none}.html_embed_widget .game_frame.game_pending .fullscreen_btn{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-webkit-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-moz-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-o-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:fullscreen{display:block}.html_embed_widget .game_frame:not(.game_loaded) .restore_wrapper{display:none}.html_embed_widget .game_frame iframe{height:0;width:0;border:0;box-sizing:border-box;max-height:100%;max-width:100%;min-height:100%;min-width:100%}
+</style>
+
+<script>
+function toggleFullscreen(elem) {
+  elem = elem || document.documentElement;
+
+  if (!document.fullscreenElement && !document.mozFullScreenElement &&
+    !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+}
+
+document.getElementById('fullscreen_btn').addEventListener('click', function() {
+  toggleFullscreen(main);
+});
+
+document.getElementById('exampleImage').addEventListener('click', function() {
+  toggleFullscreen(this);
+});
+</script>
+
         </div>
         </div>
         <script src="https://ruffle.rs/demo/index.js"></script>
