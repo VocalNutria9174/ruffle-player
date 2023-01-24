@@ -22,7 +22,7 @@ https://ruffle.rs/demo/ -->
           data-canonical-src="https://ruffle.rs/assets/logo.svg"></a>
     </div>
     <a href="https://github.com/VocalNutria9174/ruffle-player" style="color:#81c995;">Github</a>
-    <p><b>NOTE: (currently,) Ruffle Only Supports Action Script 1 & 2! Support for Action Script 3 is comming soon!!!</b></p>
+    <p><b>NOTE: (currently,) Ruffle (mostly) Supports Action Script 1 & 2! Full Support for Action Script 3 is comming soon!!!</b></p>
 
     <div id="file-picker">
       <div id="local-file-container">
@@ -170,5 +170,12 @@ https://ruffle.rs/demo/ -->
   </div>
   <script src="https://ruffle.rs/demo/index.js"></script>
 </body>
-
+<script>
+;(function () {
+    var src = '//cdn.jsdelivr.net/npm/eruda';
+    if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+    document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+})();
+</script>
 </html>
