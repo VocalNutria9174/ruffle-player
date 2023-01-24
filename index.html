@@ -7,14 +7,12 @@ https://ruffle.rs/demo/ -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ruffle Web Demo</title>
+  <title>ruffle web player</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="icon" href="https://ruffle.rs/assets/favicon-32.png" sizes="32x32">
   <link rel="icon" href="https://ruffle.rs/assets/favicon-64.png" sizes="64x64">
   <link rel="icon" href="https://ruffle.rs/assets/favicon-180.png" sizes="180x180">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -24,7 +22,7 @@ https://ruffle.rs/demo/ -->
           data-canonical-src="https://ruffle.rs/assets/logo.svg"></a>
     </div>
     <a href="https://github.com/VocalNutria9174/ruffle-player" style="color:#81c995;">Github</a>
-    <p><b>NOTE: Only Supports Action Script 1 & 2! Support for Action Script 3 is comming soon!!!</b></p>
+    <p><b>NOTE: (currently,) Ruffle Only Supports Action Script 1 & 2! Support for Action Script 3 is comming soon!!!</b></p>
 
     <div id="file-picker">
       <div id="local-file-container">
@@ -56,7 +54,7 @@ https://ruffle.rs/demo/ -->
     <ruffle-player id="player">
       <p
         style="color:orange;text-align:center;position:absolute;bottom:0;left:0;margin:2.5px;font-size:18.5px;display:block;">
-        <b>Select a .swf file to begin!!</b>
+        <b>select a .swf file to begin.</b>
       </p><button title="Enter/Exit Fullscreen Mode!" id="fullscreen_btn">
         <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <svg id="fullscreen_btn" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -129,42 +127,42 @@ https://ruffle.rs/demo/ -->
   </div>
   <div id="metadata-modal" class="modal">
     <div class="modal-content">
-      <span class="close" id="close-modal">×</span>
+      <span class="close" id="close-modal">❌</span>
       <table id="metadata">
         <tr>
-          <td>Uncompressed Length</td>
+          <td>uncompressed length</td>
           <td><span class="metadata" id="uncompressedLength">Loading</span></td>
         </tr>
         <tr>
-          <td>SWF Version</td>
+          <td>SWF version</td>
           <td><span class="metadata" id="swfVersion">Loading</span></td>
         </tr>
         <tr>
-          <td>FP Version</td>
+          <td>FP version</td>
           <td><span class="metadata" id="flashVersion">Loading</span></td>
         </tr>
         <tr>
-          <td>ActionScript 3</td>
+          <td>actionscript 3</td>
           <td><span class="metadata" id="isActionScript3">Loading</span></td>
         </tr>
         <tr>
-          <td>Total Frames</td>
+          <td>total frames</td>
           <td><span class="metadata" id="numFrames">Loading</span></td>
         </tr>
         <tr>
-          <td>Frame Rate</td>
+          <td>frame rate</td>
           <td><span class="metadata" id="frameRate">Loading</span></td>
         </tr>
         <tr>
-          <td>SWF Width</td>
+          <td>SWF width</td>
           <td><span class="metadata" id="width">Loading</span></td>
         </tr>
         <tr>
-          <td>SWF Height</td>
+          <td>SWF height</td>
           <td><span class="metadata" id="height">Loading</span></td>
         </tr>
         <tr>
-          <td>SWF Background Color</td>
+          <td>SWF background color</td>
           <td><input class="metadata" type="color" id="backgroundColor" disabled value="#FFFFFF"></td>
         </tr>
       </table>
